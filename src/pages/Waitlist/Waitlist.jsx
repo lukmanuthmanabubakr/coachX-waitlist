@@ -28,7 +28,7 @@ const Waitlist = () => {
     } catch (error) {
       const errMsg =
         error.response?.data?.message || "Something went wrong. Try again!";
-      toast.error(errMsg);
+      // toast.error(errMsg);
     } finally {
       setLoading(false);
     }
