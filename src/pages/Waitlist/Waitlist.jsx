@@ -10,13 +10,16 @@ const Waitlist = () => {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.fullName]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value }); // ✅ fixed
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.fullName || !formData.email) return;
+    if (!formData.fullName || !formData.email) {
+      toast.error("Please fill in all fields");
+      return;
+    }
 
     setLoading(true);
     try {
@@ -35,10 +38,12 @@ const Waitlist = () => {
     }
   };
 
-  const isFormValid = formData.name.trim() && formData.email.trim();
+  const isFormValid =
+    formData.fullName.trim() !== "" && formData.email.trim() !== "";
 
   return (
     <div className="waitlist-wrapper">
+      <Toaster position="top-center" />
       {/* LEFT SIDE */}
       <div className="waitlist-left">
         <div className="image-container">
@@ -49,7 +54,7 @@ const Waitlist = () => {
             initial={{ opacity: 0, y: 40, scale: 0.9 }}
             animate={{
               opacity: 1,
-              y: [0, -10, 0], // floating effect
+              y: [0, -10, 0],
               scale: 1,
             }}
             transition={{
@@ -57,7 +62,7 @@ const Waitlist = () => {
               ease: "easeOut",
               delay: 0.3,
               repeatType: "reverse",
-              repeatDelay: 2, // small pause between floats
+              repeatDelay: 2,
             }}
           />
         </div>
@@ -72,8 +77,8 @@ const Waitlist = () => {
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              name="name"
-              placeholder="Enter your FullName"
+              name="fullName" // ✅ fixed name
+              placeholder="Enter your Full Name"
               value={formData.fullName}
               onChange={handleChange}
               required
@@ -81,7 +86,7 @@ const Waitlist = () => {
             <input
               type="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder="Enter your Email"
               value={formData.email}
               onChange={handleChange}
               required
