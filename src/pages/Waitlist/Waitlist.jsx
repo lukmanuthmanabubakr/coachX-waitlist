@@ -27,8 +27,8 @@ const Waitlist = () => {
       setFormData({ name: "", email: "" });
     } catch (error) {
       const errMsg =
-        error.response?.data?.message || "Something went wrong. Try again!";
-      // toast.error(errMsg);
+        error.response?.data?.message;
+      toast.error(errMsg);
     } finally {
       setLoading(false);
     }
