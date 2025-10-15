@@ -27,7 +27,7 @@ const Waitlist = () => {
       setFormData({ name: "", email: "" });
     } catch (error) {
       const errMsg =
-        error.response?.data?.message;
+        error.response?.data?.message || "Something went wrong. Try again!";
       toast.error(errMsg);
     } finally {
       setLoading(false);
@@ -38,8 +38,6 @@ const Waitlist = () => {
 
   return (
     <div className="waitlist-wrapper">
-      <Toaster position="top-right" />
-
       {/* LEFT SIDE */}
       <div className="waitlist-left">
         <div className="image-container">
