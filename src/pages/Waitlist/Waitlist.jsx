@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import coachX from "../../assets/coachXHome.svg";
+import { motion } from "framer-motion";
 import "./Waitlist.css";
 
 const Waitlist = () => {
@@ -41,7 +42,24 @@ const Waitlist = () => {
       {/* LEFT SIDE */}
       <div className="waitlist-left">
         <div className="image-container">
-          <img src={coachX} alt="CoachX" className="waitlist-image" />
+          <motion.img
+            src={coachX}
+            alt="CoachX"
+            className="waitlist-image"
+            initial={{ opacity: 0, y: 40, scale: 0.9 }}
+            animate={{
+              opacity: 1,
+              y: [0, -10, 0], // floating effect
+              scale: 1,
+            }}
+            transition={{
+              duration: 1,
+              ease: "easeOut",
+              delay: 0.3,
+              repeatType: "reverse",
+              repeatDelay: 2, // small pause between floats
+            }}
+          />
         </div>
       </div>
 
