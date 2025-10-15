@@ -6,17 +6,17 @@ import { motion } from "framer-motion";
 import "./Waitlist.css";
 
 const Waitlist = () => {
-  const [formData, setFormData] = useState({ name: "", email: "" });
+  const [formData, setFormData] = useState({ fullName: "", email: "" });
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.fullName]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.email) return;
+    if (!formData.fullName || !formData.email) return;
 
     setLoading(true);
     try {
@@ -25,7 +25,7 @@ const Waitlist = () => {
         formData
       );
       toast.success(res.data.message || "Successfully joined the waitlist!");
-      setFormData({ name: "", email: "" });
+      setFormData({ fullName: "", email: "" });
     } catch (error) {
       const errMsg =
         error.response?.data?.message || "Something went wrong. Try again!";
@@ -74,7 +74,7 @@ const Waitlist = () => {
               type="text"
               name="name"
               placeholder="Enter your FullName"
-              value={formData.name}
+              value={formData.fullName}
               onChange={handleChange}
               required
             />
