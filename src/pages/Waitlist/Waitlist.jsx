@@ -73,7 +73,7 @@ const Waitlist = () => {
             <input
               type="text"
               name="name"
-              placeholder="Enter your name"
+              placeholder="Enter your FullName"
               value={formData.name}
               onChange={handleChange}
               required
