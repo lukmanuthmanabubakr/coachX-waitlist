@@ -1,0 +1,57 @@
+.welcomeLogo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--welcome-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+
+.welcomeLogo .sublogo {
+  height: 5rem;
+  width: 5rem;
+  animation: bounceIn 1s ease forwards;
+}
+
+.welcomeLogo .logo {
+  height: 5rem;
+  width: 10rem;
+  margin-top: -1rem;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+.welcomeLogo.fadeOut {
+  opacity: 0;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

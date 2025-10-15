@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  border: none;
+}
+html {
+  scroll-behavior: smooth; /* Enables smooth scrolling for the entire page */
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  /* Navbar */
+  --navbar-bg: #ffffff;
+  --navbar-text: #1a0d05;
+  --navbar-link-hover: #ff781f;
+  --navbar-btn-bg: #ff781f;
+  --navbar-btn-text: #ffffff;
+  --navbar-btn-hover: #ff8a2b;
+
+  --welcome-bg: #fff2e9;
+  --welcome-des-bg: #fff2e9;
+
+  /* Waitlist */
+  --waitlist-bg-left: #fff9f4;
+  --waitlist-bg-right: #fff2e9;
+  --waitlist-text: #5b514a;
+  --waitlist-input-bg: #ffffff;
+  --waitlist-input-border: #ffd3a6;
+  --waitlist-btn-bg: #ff8b35;
+  --waitlist-btn-text: #ffffff;
+  --waitlist-btn-hover: #ff781f;
+}
