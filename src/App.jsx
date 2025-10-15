@@ -31,7 +31,7 @@ const AnimatedRoutes = () => {
           }
         />
 
-        {/* CATCH-ALL — REDIRECT UNKNOWN ROUTES TO HOME */}
+        {/* CATCH-ALL —  UNKNOWN ROUTES TO HOME */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </AnimatePresence>
